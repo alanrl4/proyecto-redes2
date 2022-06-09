@@ -11,6 +11,9 @@ if ($filename === "File not found") {
         header('Content-Description: File download');
         header('Content-Disposition: attachment; filename="'.basename($filename).'"');
         header('Content-Length: ' . filesize($filename));
+        while (ob_get_level()) {
+            ob_end_clean();
+        }
         readfile($filename);
         unlink($filename);
         exit;

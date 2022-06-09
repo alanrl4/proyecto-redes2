@@ -25,7 +25,7 @@ def handler(conn: socket.socket, client_address: tuple):
         d = conn.recv(BUFFER_SIZE).decode()
         filename, operation = d.split(SEPARATOR)
 
-        filename = f'./{FILES_FOLDER}/{os.path.basename(filename)}.chunk'
+        filename = f'{FILES_FOLDER}/{os.path.basename(filename)}.chunk'
 
         if operation == "upload":
             conn.send(b'ACK')
