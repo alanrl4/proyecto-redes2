@@ -45,10 +45,10 @@ def handler(conn: socket.socket, client_address: tuple):
                         if not chunk:
                             break
                         conn.sendall(chunk)
-                print(f'${filename} sent')
+                print(f'{filename} sent')
             else:
                 conn.send(b'0')
-                print(f'${filename} not found')
+                print(f'{filename} not found')
     finally:
         conn.close()
 
