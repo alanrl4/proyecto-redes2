@@ -1,15 +1,11 @@
-from base64 import encode
 from math import ceil
 import socket
 import sys
-import time
 import os
 
-PORTS = (8083, 8084, 8085)
-IPS = ('localhost', 'localhost', 'localhost')
+PORTS = (3000,3000,3000)
+IPS = ('10.10.10.4', '20.20.20.2', '30.30.30.2')
 
-PORT = 8083
-IP = 'localhost'
 SEPARATOR = '<separator>'
 BUFFER_SIZE = 500
 CLIENT_FOLDER = "client_files"
@@ -31,7 +27,6 @@ conns = (
     socket.socket(socket.AF_INET, socket.SOCK_STREAM)
 )
 
-server_address = (IP, PORT)
 for i in range(3):
     ip = IPS[i]
     port = PORTS[i]

@@ -4,16 +4,15 @@ import sys
 import os
 import threading
 
-
-IP = 'localhost'
+PORT = 3000
 SEPARATOR = '<separator>'
 BUFFER_SIZE = 500
 
 if (len(sys.argv) < 3):
-    print("Missing arguments: server.py PORT FOLDER")
+    print("Missing arguments: server.py IP FOLDER")
     exit()
 
-PORT = int(sys.argv[1])
+IP = int(sys.argv[1])
 FILES_FOLDER = sys.argv[2]
 try:
     os.mkdir(FILES_FOLDER)
@@ -55,7 +54,7 @@ def handler(conn: socket.socket, client_address: tuple):
 sock = socket.socket(socket.AF_INET, socket.SOCK_STREAM)
 server_address = (IP, PORT)
 sock.bind(server_address)
-sock.listen(10);
+sock.listen(20);
 
 print('Server listen on {}:{}'.format(*server_address))
 while True:
